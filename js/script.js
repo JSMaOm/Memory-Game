@@ -1,5 +1,6 @@
 const backFacesArray = ['😲', '😴', '😑', '😍', '😜', '😒', '😁', '😉'];
-const frontFaces = document.querySelectorAll('.js_front'),
+const cards = document.querySelectorAll('.card'),
+  frontFaces = document.querySelectorAll('.js_front'),
   backFaces = document.querySelectorAll('.js_back'),
   idexs = [],
   duplicatArray = duplicat(backFacesArray);
@@ -32,3 +33,9 @@ function pasteFace() {
 
 pasteFace();
 
+
+function flipTheCardAndMatch() {
+  this.classList.add('card--open');
+}
+
+cards.forEach(card => card.addEventListener('click', flipTheCardAndMatch));

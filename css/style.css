@@ -309,11 +309,11 @@ ul {
 
 .cards_board {
   width: 530px;
-  /* height: 500px; */
   margin: 50px auto 0;
   padding: 10px;
-  background-color: #38ada9;
-  border-radius: 10px; }
+  background-color: #946200;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px 2px rgba(148, 98, 0, 0.5); }
 
 .cards_row {
   display: flex;
@@ -343,15 +343,15 @@ ul {
     backface-visibility: hidden;
     transition: transform 0.3s ease-in; }
   .card_face1 {
-    background-color: red; }
+    background-color: #ffa801; }
   .card_face2 {
-    background-color: blue;
+    background-color: #0be881;
     transform: rotateY(180deg);
     font-size: 50px;
     display: flex;
     justify-content: center;
     align-items: center; }
-  .card:hover .card_face1 {
+  .card--open .card_face1 {
     transform: rotateY(-180deg); }
-  .card:hover .card_face2 {
+  .card--open .card_face2 {
     transform: rotateY(0); }
