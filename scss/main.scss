@@ -1,10 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500');
 @import 'normalize';
+
+$text-color: #946200;
+$board-color: #946200;
+$front-color: #ffa801;
+$back-color: #0be881;
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: $text-color;
+}
+
+.header {
+  font-weight: 400;
+  font-size: 36px;
+  text-align: center;
+  width: 30%;
+  margin: 30px auto 0;
+}
+
 .cards {
   &_board {
     width: 530px;
     margin: 50px auto 0;
     padding: 10px;
-    background-color: #946200;
+    background-color: $board-color;
     border-radius: 10px;
     box-shadow: 0 10px 20px 2px rgba(148, 98, 0, 0.5);
   }
@@ -39,15 +59,15 @@
     height: 100%;
     border-radius: 10px;
     backface-visibility: hidden;
-    transition: transform 0.3s ease-in;
+    transition: transform 0.2s ease-in;
   }
 
   &_face1 {
-    background-color: #ffa801;
+    background-color: $front-color;
   }
 
   &_face2 {
-    background-color: #0be881;
+    background-color: $back-color;
     transform: rotateY(180deg);
     font-size: 50px;
     display: flex;

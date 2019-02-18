@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500");
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -307,6 +308,17 @@ ul {
   list-style-type: none;
   padding-left: 0; }
 
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #946200; }
+
+.header {
+  font-weight: 400;
+  font-size: 36px;
+  text-align: center;
+  width: 30%;
+  margin: 30px auto 0; }
+
 .cards_board {
   width: 530px;
   margin: 50px auto 0;
@@ -341,7 +353,7 @@ ul {
     height: 100%;
     border-radius: 10px;
     backface-visibility: hidden;
-    transition: transform 0.3s ease-in; }
+    transition: transform 0.2s ease-in; }
   .card_face1 {
     background-color: #ffa801; }
   .card_face2 {

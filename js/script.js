@@ -6,7 +6,8 @@ const cards = document.querySelectorAll('.card'),
   duplicatArray = duplicat(backFacesArray);
 
 let firstCard,
-  matching = false;
+  matching = false,
+  progress = 0;
 
 function duplicat(array) {
   const dArray = [];
@@ -26,7 +27,7 @@ function randomIdx() {
   } else randomIdx();
 }
 
-function pasteFace() {
+function initGame() {
   randomIdx()
   let i = 0;
   backFaces.forEach(back => {
@@ -34,7 +35,7 @@ function pasteFace() {
   })
 }
 
-pasteFace();
+initGame();
 
 
 function flipTheCardAndMatch() {
@@ -43,7 +44,6 @@ function flipTheCardAndMatch() {
   if (!firstCard) firstCard = this;
   else {
     matching = true;
-    console.log(firstCard, this);
     if (this.textContent !== firstCard.textContent) {
       setTimeout(() => {
         this.classList.remove('card--open');
@@ -52,6 +52,7 @@ function flipTheCardAndMatch() {
         matching = false;
       }, 1000)
     } else {
+      progress++;
       firstCard = null;
       matching = false;
     }
