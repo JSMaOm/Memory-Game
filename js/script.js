@@ -5,6 +5,9 @@ const cards = document.querySelectorAll('.card'),
   idexs = [],
   duplicatArray = duplicat(backFacesArray);
 
+let firstCard,
+  matching = false;
+
 function duplicat(array) {
   const dArray = [];
   array.map(item => {
@@ -35,7 +38,24 @@ pasteFace();
 
 
 function flipTheCardAndMatch() {
+  if (matching) return;
   this.classList.add('card--open');
+  if (!firstCard) firstCard = this;
+  else {
+    matching = true;
+    console.log(firstCard, this);
+    if (this.textContent !== firstCard.textContent) {
+      setTimeout(() => {
+        this.classList.remove('card--open');
+        firstCard.classList.remove('card--open');
+        firstCard = null;
+        matching = false;
+      }, 1000)
+    } else {
+      firstCard = null;
+      matching = false;
+    }
+  }
 }
 
 cards.forEach(card => card.addEventListener('click', flipTheCardAndMatch));
