@@ -2,12 +2,14 @@ const backFacesArray = ['😲', '😴', '😑', '😍', '😜', '😒', '😁', 
 const cards = document.querySelectorAll('.card'),
   frontFaces = document.querySelectorAll('.js_front'),
   backFaces = document.querySelectorAll('.js_back'),
+  resultBoard = document.querySelector('.cards_result'),
+  resultText = document.querySelector('.cards_win'),
   idexs = [],
   duplicatArray = duplicat(backFacesArray);
 
 let firstCard,
   matching = false,
-  progress = 0;
+  cardsOpen = 0;
 
 function duplicat(array) {
   const dArray = [];
@@ -28,10 +30,10 @@ function randomIdx() {
 }
 
 function initGame() {
-  randomIdx()
+  /* randomIdx() */
   let i = 0;
   backFaces.forEach(back => {
-    back.textContent = duplicatArray[idexs[i++]];
+    back.textContent = duplicatArray[i++];
   })
 }
 
@@ -39,6 +41,7 @@ initGame();
 
 
 function flipTheCardAndMatch() {
+  console.log('clikcked');
   if (matching) return;
   this.classList.add('card--open');
   if (!firstCard) firstCard = this;
@@ -50,11 +53,17 @@ function flipTheCardAndMatch() {
         firstCard.classList.remove('card--open');
         firstCard = null;
         matching = false;
-      }, 1000)
+      }, 500)
     } else {
-      progress++;
+      cardsOpen++;
       firstCard = null;
       matching = false;
+      if (cardsOpen === 8) {
+        resultBoard.classList.add('cards_result--show');
+        setTimeout(() => {
+          resultText.classList.add('cards_win--done');
+        }, 500);
+      }
     }
   }
 }
