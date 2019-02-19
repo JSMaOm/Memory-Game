@@ -30,10 +30,10 @@ function randomIdx() {
 }
 
 function initGame() {
-  /* randomIdx() */
+  randomIdx();
   let i = 0;
   backFaces.forEach(back => {
-    back.textContent = duplicatArray[i++];
+    back.textContent = duplicatArray[idexs[i++]];
   })
 }
 
