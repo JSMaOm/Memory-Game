@@ -111,6 +111,7 @@ body {
   transform-style: preserve-3d;
   overflow: hidden;
   cursor: pointer;
+  pointer-events: auto;
 
   @media screen and (max-width: 560px) {
     & {
@@ -147,6 +148,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  &--open {
+    pointer-events: none;
   }
 
   &--open &_face1 {

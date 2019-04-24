@@ -388,7 +388,8 @@ body {
   border-radius: 10px;
   transform-style: preserve-3d;
   overflow: hidden;
-  cursor: pointer; }
+  cursor: pointer;
+  pointer-events: auto; }
   @media screen and (max-width: 560px) {
     .card {
       width: 100px;
@@ -414,6 +415,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center; }
+  .card--open {
+    pointer-events: none; }
   .card--open .card_face1 {
     transform: rotateY(-180deg); }
   .card--open .card_face2 {
