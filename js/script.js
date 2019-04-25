@@ -1,14 +1,16 @@
 const backFacesArray = ['😲', '😴', '😑', '😍', '😜', '😒', '😁', '😉'];
-const cards = document.querySelectorAll('.card'),
+const restartBtn = document.querySelector('.cards_btn'),
+  cards = document.querySelectorAll('.card'),
   frontFaces = document.querySelectorAll('.js_front'),
   backFaces = document.querySelectorAll('.js_back'),
   resultBoard = document.querySelector('.cards_result'),
   resultText = document.querySelector('.cards_win'),
-  idexs = [],
   duplicatArray = duplicat(backFacesArray);
+
 
 let firstCard,
   matching = false,
+  idexs = [],
   cardsOpen = 0;
 
 function duplicat(array) {
@@ -29,19 +31,32 @@ function randomIdx() {
   } else randomIdx();
 }
 
+function restartGame() {
+  console.log('restart the game!');
+  cards.forEach(card => {
+    card.classList.remove('card--open');
+  });
+  initGame();
+}
+
 function initGame() {
+  firstCard;
+  matching = false;
+  idexs = [];
+  cardsOpen = 0;
   randomIdx();
   let i = 0;
   backFaces.forEach(back => {
     back.textContent = duplicatArray[idexs[i++]];
-  })
+    console.log(back.textContent);
+  });
+  cards.forEach(card => card.addEventListener('click', flipTheCardAndMatch));
 }
 
 initGame();
 
 
 function flipTheCardAndMatch() {
-  console.log('clikcked');
   if (matching) return;
   this.classList.add('card--open');
   if (!firstCard) firstCard = this;
@@ -68,4 +83,8 @@ function flipTheCardAndMatch() {
   }
 }
 
-cards.forEach(card => card.addEventListener('click', flipTheCardAndMatch));
+restartBtn.addEventListener('click', () => {
+  restartGame();
+  resultBoard.classList.remove('cards_result--show');
+  resultText.classList.remove('cards_win--done');
+})
