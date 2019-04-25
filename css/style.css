@@ -312,6 +312,11 @@ body {
   font-family: 'Poppins', sans-serif;
   color: #946200; }
 
+.up_wrap {
+  text-align: center; }
+  .up_wrap .cards_btn {
+    margin-top: 30px; }
+
 .header {
   font-weight: 400;
   font-size: 36px;
@@ -333,6 +338,7 @@ body {
   height: 100%;
   z-index: 1;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #946200;
@@ -340,7 +346,8 @@ body {
   transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
 
 .cards_result--show {
-  transform: translateY(0); }
+  transform: translateY(0);
+  transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
 
 .cards_win {
   color: #d3bf97;
@@ -348,11 +355,29 @@ body {
   width: 50%;
   transform: scale(0.1);
   opacity: 0;
-  transition: all 0.5s ease-in 1s; }
+  transition: all 0.5s ease-in 1s;
+  text-align: center; }
+  @media screen and (max-width: 567px) {
+    .cards_win {
+      font-size: 48px; } }
+  @media screen and (max-width: 480px) {
+    .cards_win {
+      font-size: 32px; } }
 
 .cards_win--done {
   transform: scale(1);
-  opacity: 1; }
+  opacity: 1;
+  transition: all 0.5s ease-in 1s; }
+
+.cards_btn {
+  border: none;
+  background-color: #0be881;
+  color: #946200;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer; }
 
 .cards_board {
   position: relative;

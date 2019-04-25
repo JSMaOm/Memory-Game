@@ -12,6 +12,14 @@ body {
   color: $text-color;
 }
 
+.up_wrap {
+  text-align: center;
+
+  .cards_btn {
+    margin-top: 30px;
+  }
+}
+
 .header {
   font-weight: 400;
   font-size: 36px;
@@ -41,6 +49,7 @@ body {
     height: 100%;
     z-index: 1;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: $board-color;
@@ -50,6 +59,7 @@ body {
 
   &_result--show {
     transform: translateY(0);
+    transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
 
   &_win {
@@ -59,11 +69,36 @@ body {
     transform: scale(0.1);
     opacity: 0;
     transition: all 0.5s ease-in 1s;
+    text-align: center;
+
+    @media screen and (max-width: 567px) {
+      & {
+        font-size: 48px;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      & {
+        font-size: 32px;
+      }
+    }
   }
 
   &_win--done {
     transform: scale(1);
     opacity: 1;
+    transition: all 0.5s ease-in 1s;
+  }
+
+  &_btn {
+    border: none;
+    background-color: $back-color;
+    color: $board-color;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
   }
 
   &_board {
